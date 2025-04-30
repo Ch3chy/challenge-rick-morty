@@ -1,0 +1,66 @@
+@use "@styles/mixins/responsive";
+
+.appBody {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  @include responsive.apply(md) {
+    justify-content: center;
+  }
+}
+
+.background {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  .backgroundImage {
+    height: 100%;
+    max-width: var(--Grid-xxl);
+    object-fit: cover;
+    object-position: -4.5rem bottom;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  &:after {
+    background: linear-gradient(
+      to bottom,
+      var(--Color-green-500),
+      var(--Color-green-400)
+    );
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 52px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+  }
+  @include responsive.apply(md) {
+    &::after {
+      height: 120px;
+    }
+  }
+}
+
+.appContainer {
+  flex: 1;
+  padding: 2rem 1rem calc(2rem + 52px);
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  @include responsive.apply(md) {
+    max-height: 720px;
+    max-width: var(--Grid-lg);
+    padding: 2rem 1rem;
+  }
+}
