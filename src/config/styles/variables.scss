@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "./variables/breakpoints";
+
+:root {
+  @each $size, $values in breakpoints.$breakpoints {
+    @if map.has-key($values, min) {
+      $size-min: map.get($values, min);
+      --Grid-#{$size}: #{$size-min};
+    }
+  }
+}
