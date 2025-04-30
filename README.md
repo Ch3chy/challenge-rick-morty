@@ -39,6 +39,24 @@ Abrir [http://localhost:3000](http://localhost:3000) en su navegador para ver el
 
 ---
 
+## 🌐 Despliegue Continuo con AWS Amplify
+
+Este proyecto utiliza AWS Amplify para implementar un despliegue continuo (CI/CD), lo que ofrece varias ventajas significativas:
+
+### 📌 Ventajas del Despliegue en Amplify
+
+- **Integración Automática**: Se integra perfectamente con GitHub, realizando despliegues automáticos con cada push a la rama principal.
+- **Escalabilidad**: Amplify se encarga automáticamente de la infraestructura y el escalado según la demanda.
+- **Seguridad**: Proporciona HTTPS por defecto y protección DDoS.
+- **Optimización**: Incluye optimización automática de assets y caching.
+- **Monitoreo**: Ofrece métricas y logs en tiempo real.
+
+### 📌 URL de la Aplicación
+
+La aplicación está disponible en: [https://main.d385ui0pylb0nn.amplifyapp.com/](https://main.d385ui0pylb0nn.amplifyapp.com/)
+
+---
+
 ## 📖 Directrices para Commits (Conventional Commits)
 
 Este proyecto sigue el estándar **Conventional Commits** para mantener un historial de commits estructurado y legible.
