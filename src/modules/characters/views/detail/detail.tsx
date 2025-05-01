@@ -22,6 +22,7 @@ const Detail: FC<DetailProps> = async ({ params }) => {
         <Image
           src={character.image}
           alt={character.name}
+          priority
           width={300}
           height={300}
         />

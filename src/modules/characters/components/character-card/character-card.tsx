@@ -43,7 +43,7 @@ const CharacterCard: FC<CharacterCardProps> = ({
         className={`${styles.like} ${isLiked ? styles.liked : ""}`}
         onClick={(e) => handleLike(e)}
       >
-        <Heart className={styles.likeIcon} /> Like
+        <Heart className={styles.likeIcon} weight="bold" /> Like
       </button>
     </Link>
   );
