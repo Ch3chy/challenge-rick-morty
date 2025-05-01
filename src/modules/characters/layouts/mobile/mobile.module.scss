@@ -1,0 +1,21 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  .title {
+    display: flex;
+    font-size: 0;
+    justify-content: center;
+    width: 100%;
+    img {
+      height: auto;
+      max-width: 350px;
+      width: 90%;
+    }
+  }
+}
