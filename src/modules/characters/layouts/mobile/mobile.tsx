@@ -3,6 +3,8 @@ import styles from "./mobile.module.scss";
 import Image from "next/image";
 import { CarouselMobile } from "../../components/carousel-mobile";
 import { Character } from "../../types/characters.types";
+import { List } from "../../components/list";
+import { arrayToGroups } from "@/config/utils/arrays.utils";
 
 type MobileLayoutProps = Readonly<{
   children?: React.ReactNode;
@@ -13,6 +15,8 @@ const MobileLayout: FC<MobileLayoutProps> = async ({
   children,
   characters,
 }) => {
+  const charactersGroups = arrayToGroups(characters, 2);
+
   return (
     <div className={styles.layout}>
       <header className={styles.header}>
@@ -27,9 +31,8 @@ const MobileLayout: FC<MobileLayoutProps> = async ({
         </h1>
       </header>
       <h1>Mobile Layout ({characters.length})</h1>
-      <CarouselMobile characters={characters}>
-        {children}
-      </CarouselMobile>
+      <List characters={charactersGroups} className={styles.list} />
+      <CarouselMobile characters={characters}>{children}</CarouselMobile>
     </div>
   );
 };

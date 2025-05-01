@@ -1,0 +1,60 @@
+.card {
+  align-items: center;
+  background-color: var(--Color-gray-200);
+  border: 2px solid var(--Color-gray-200);
+  border-radius: 2rem;
+  color: unset;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+  justify-content: center;
+  max-width: 160px;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  width: 100%;
+
+  &.active {
+    background-color: var(--Color-gray-100);
+    border-color: var(--Color-green-500);
+  }
+}
+
+.name {
+  display: -webkit-box;
+  font-size: 1rem;
+  font-weight: 400;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.image {
+  aspect-ratio: 1/1;
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.like {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  display: flex;
+  gap: 0.25rem;
+  line-height: 1;
+  .likeIcon {
+    font-size: 1.5em;
+    margin-bottom: 2px;
+  }
+  &.liked {
+    .likeIcon {
+      color: var(--Color-red-500);
+    }
+  }
+}
