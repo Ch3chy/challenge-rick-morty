@@ -59,6 +59,11 @@ const Favorites: FC<FavoritesProps> = ({ className }) => {
               </button>
             </li>
           ))}
+          {favorites.length === 0 && (
+            <li className={styles.item}>
+              <span className={styles.name}>No favorites</span>
+            </li>
+          )}
         </ul>
       )}
     </div>
