@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .header {
@@ -22,4 +23,14 @@
 
 .list {
   padding: 0 1.75rem;
+}
+
+.favorites {
+  bottom: 0;
+  left: 50%;
+  max-width: 200px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
 }
