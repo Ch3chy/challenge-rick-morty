@@ -1,3 +1,3 @@
-import { Home } from "@/modules/home";
+import { Characters } from "@/modules/characters";
 
-export default Home;
+export default Characters;
