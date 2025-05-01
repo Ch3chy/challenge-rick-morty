@@ -1,7 +1,8 @@
 import { FC } from "react";
 import styles from "./mobile.module.scss";
-import { Character } from "rickmortyapi";
 import Image from "next/image";
+import { CarouselMobile } from "../../components/carousel-mobile";
+import { Character } from "../../types/characters.types";
 
 type MobileLayoutProps = Readonly<{
   children?: React.ReactNode;
@@ -26,7 +27,9 @@ const MobileLayout: FC<MobileLayoutProps> = async ({
         </h1>
       </header>
       <h1>Mobile Layout ({characters.length})</h1>
-      {children}
+      <CarouselMobile characters={characters}>
+        {children}
+      </CarouselMobile>
     </div>
   );
 };

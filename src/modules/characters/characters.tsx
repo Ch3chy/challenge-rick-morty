@@ -4,6 +4,7 @@ import { isMobileDevice } from "@/config/utils/device-ssr.utils";
 import { MobileLayout } from "./layouts/mobile";
 import { DesktopLayout } from "./layouts/desktop";
 import { getCharacters } from "rickmortyapi";
+import { Character } from "./types/characters.types";
 
 const Characters: FC<
   Readonly<{
@@ -15,7 +16,7 @@ const Characters: FC<
 
   const Layout = isMobile ? MobileLayout : DesktopLayout;
 
-  const characters = charactersResponse.data.results || [];
+  const characters = (charactersResponse.data.results || []) as Character[];
 
   return (
     <section className={styles.page}>

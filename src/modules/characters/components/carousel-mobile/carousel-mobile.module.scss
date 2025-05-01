@@ -1,0 +1,17 @@
+.carousel {
+  align-items: center;
+  display: flex;
+
+  .arrowLeft {
+    margin-right: -0.125rem;
+    rotate: 180deg;
+  }
+  .arrowRight {
+    margin-left: -0.125rem;
+  }
+}
+
+.arrow {
+  color: unset;
+  text-decoration: none;
+}

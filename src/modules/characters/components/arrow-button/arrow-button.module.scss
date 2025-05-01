@@ -1,0 +1,21 @@
+.button {
+  align-items: center;
+  background-color: var(--Color-gray-400);
+  border: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  height: 2rem;
+  outline: none;
+  width: 2rem;
+}
+
+.button:hover {
+  color: var(--Color-green-500);
+}
+
+.button:active {
+  background-color: var(--Color-gray-300);
+}
