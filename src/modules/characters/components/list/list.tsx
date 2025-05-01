@@ -1,10 +1,14 @@
 "use client";
 
-import { FC, useMemo } from "react";
+import { FC, useCallback, useMemo } from "react";
 import { Character } from "../../types/characters.types";
 import { useParams } from "next/navigation";
 import { CharacterCard } from "../character-card";
 import styles from "./list.module.scss";
+import { actions } from "../../store/slices";
+import { useAppDispatch } from "@/config/store";
+import { useSelector } from "react-redux";
+import { favoritesSelector } from "../../store/selectors";
 
 type ListProps = Readonly<{
   characters: Character[][];
@@ -13,6 +17,8 @@ type ListProps = Readonly<{
 
 const List: FC<ListProps> = ({ characters, className }) => {
   const { characterId } = useParams();
+  const dispatch = useAppDispatch();
+  const favorites = useSelector(favoritesSelector);
 
   const currentCharacter = useMemo(
     () =>
@@ -22,6 +28,20 @@ const List: FC<ListProps> = ({ characters, className }) => {
     [characters, characterId]
   );
 
+  const isFavorite = useCallback(
+    (character: Character) =>
+      favorites.some((favorite) => favorite.id === character.id),
+    [favorites]
+  );
+
+  const handleLike = (character: Character) => {
+    if (isFavorite(character)) {
+      dispatch(actions.removeFavorite(character));
+    } else {
+      dispatch(actions.addFavorite(character));
+    }
+  };
+
   return (
     <section className={`${styles.list} ${className || ""}`}>
       {currentCharacter.map((character) => (
@@ -29,6 +49,8 @@ const List: FC<ListProps> = ({ characters, className }) => {
           key={`character-card-${character.id}`}
           character={character}
           isActive={String(character.id) === characterId}
+          isLiked={isFavorite(character)}
+          onLikeClick={() => handleLike(character)}
         />
       ))}
     </section>
