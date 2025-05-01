@@ -5,7 +5,7 @@ import styles from "./detail.module.scss";
 import Image from "next/image";
 
 export type DetailProps = {
-  params: UrlParams;
+  params: Promise<UrlParams>;
 };
 
 const Detail: FC<DetailProps> = async ({ params }) => {
