@@ -18,7 +18,7 @@
   position: absolute;
   text-transform: uppercase;
   top: 1rem;
-  z-index: 2;
+  z-index: 5;
 
   &:before {
     background: radial-gradient(
@@ -46,10 +46,21 @@
 
 .image {
   aspect-ratio: 1/1;
+  position: relative;
   width: 100%;
+  z-index: 1;
   img {
     height: 100%;
     object-fit: cover;
+    width: 100%;
+  }
+  &::before {
+    box-shadow: inset 1rem 1rem 2.5rem var(--Color-gray-100);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
     width: 100%;
   }
 }
@@ -60,6 +71,7 @@
   left: 0;
   padding: 0.5rem 1rem;
   position: absolute;
+  z-index: 5;
   width: 100%;
   & > * {
     position: relative;
