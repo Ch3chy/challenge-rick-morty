@@ -34,7 +34,10 @@ export default async function RootLayout({
               className={styles.backgroundImage}
             />
           </div>
-          <main className={styles.appContainer}>{children}</main>
+          <main className={styles.appContainer}>
+            <div className={styles.appContent}>{children}</div>
+          </main>
+          <div className={styles.footer}></div>
         </ReduxStateProvider>
       </body>
     </html>
