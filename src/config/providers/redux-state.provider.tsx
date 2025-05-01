@@ -1,8 +1,9 @@
 "use client";
 
 import { Provider } from "react-redux";
-import { actions, store } from "../store";
+import { actions, persistor, store } from "../store";
 import { FC } from "react";
+import { PersistGate } from "redux-persist/integration/react";
 
 interface ReduxStateProviderProps {
   children: React.ReactNode;
@@ -14,8 +15,14 @@ const ReduxStateProvider: FC<ReduxStateProviderProps> = ({
   isMobile,
 }) => {
   store.dispatch(actions.setIsMobile(!!isMobile));
-  
-  return <Provider store={store}>{children}</Provider>;
+
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        {children}
+      </PersistGate>
+    </Provider>
+  );
 };
 
 export default ReduxStateProvider;
