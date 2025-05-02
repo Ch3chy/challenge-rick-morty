@@ -18,8 +18,10 @@
 
   .name {
     display: -webkit-box;
+    color: unset;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
     width: 100%;
     -webkit-line-clamp: 1; /* número de líneas */
     -webkit-box-orient: vertical;

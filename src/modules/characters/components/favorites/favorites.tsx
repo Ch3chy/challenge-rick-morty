@@ -8,6 +8,8 @@ import { Trash } from "@phosphor-icons/react/dist/ssr";
 import { useAppDispatch } from "@/config/store";
 import { actions } from "../../store";
 import { Character } from "../../types/characters.types";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type FavoritesProps = Readonly<{
   className?: string;
@@ -16,6 +18,7 @@ type FavoritesProps = Readonly<{
 const Favorites: FC<FavoritesProps> = ({ className }) => {
   const favorites = useSelector(favoritesSelector);
   const dispatch = useAppDispatch();
+  const searchParams = useSearchParams();
 
   const listRef = useRef<HTMLDivElement>(null);
   const [openList, setOpenList] = useState(false);
@@ -50,7 +53,12 @@ const Favorites: FC<FavoritesProps> = ({ className }) => {
         <ul className={styles.list}>
           {favorites.map((favorite) => (
             <li className={styles.item} key={`favorite-${favorite.id}`}>
-              <span className={styles.name}>{favorite.name}</span>
+              <Link
+                href={`/characters/${favorite.id}?${searchParams.toString()}`}
+                className={styles.name} 
+              >
+                {favorite.name}
+              </Link>
               <button
                 className={styles.remove}
                 onClick={() => handleRemoveFavorite(favorite)}
