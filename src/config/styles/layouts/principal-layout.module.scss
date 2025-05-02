@@ -44,10 +44,21 @@
     overflow: auto;
     padding: 2rem 1rem;
     width: 100%;
-    @include responsive.apply(md) {
+  }
+  @include responsive.apply(md) {
+    z-index: 5;
+    .appContent {
+      background-color: var(--Color-gray-100);
+      border: 1px solid var(--Color-black);
+      border-radius: 1rem;
+      height: calc(100vh - 4rem);
       max-height: 720px;
       max-width: var(--Grid-lg);
+      min-height: auto;
       padding: 0;
+      position: relative;
+      width: 90%;
+      z-index: 5;
     }
   }
 }
@@ -68,5 +79,6 @@
   z-index: 2;
   @include responsive.apply(md) {
     height: 120px;
+    position: absolute;
   }
 }
