@@ -67,6 +67,43 @@ describe('Component', () => {
 });
 ```
 
+### 📌 5. Mejoras Futuras
+
+El proyecto tiene varias áreas de mejora que se pueden implementar para mejorar la experiencia del usuario y la calidad del código:
+
+#### 🎯 Mejoras de UX/UI
+- **Páginas de Error Personalizadas**
+  - Implementar páginas 404 y 500 con diseños atractivos
+  - Agregar mensajes de error descriptivos
+
+- **Paginador de Personajes**
+  - Implementar paginación en el listado de personajes
+  - Agregar controles de navegación intuitivos
+
+- **Buscador con Autocompletado**
+  - Implementar sugerencias en tiempo real
+  - Agregar filtros avanzados (especie, estado, etc.)
+
+#### 🧪 Mejoras de Testing
+- **Tests E2E (End-to-End)**
+  - Implementar pruebas con Cypress o Playwright
+  - Cubrir flujos completos de usuario
+
+- **Mejoras en Tests Unitarios**
+  - Aumentar la cobertura de tests
+  - Implementar tests de integración
+
+### 📌 6. Pain Point o Bug Interesante
+
+Me presente con el problema de que en la forma con arme la pagina, habia una pagina de detalle que se completaba con un layout y cargaba el resto de personajes y componente de search. El layout estaba y la pagina de detalle se cargaban en el directorio de app de Next.
+
+Next, en sus archivos Layout no permite acceder a los search params si es un server side component, y pasarlo a client side component reduce el rendimeinto al renderizar ahora todo el layout en el cliente.
+
+Lo solucione definiendo un layout basico para toda la pagina y la parte del layout donde necesitaba acceder al serachparams enviarlo a un componente aparte que se llamara en la pagina de detalle. En la pagina si puedo acceder al search params y podia pasarlo al nuevo componente que tiene la parte del layout.
+
+Esto me desarmo un poco la organizacion de layout que tenia pero me permitio resolver rapidamente este problema. Tal vez con mas tiempo pudiera reorganizar el layout y rutar para hacerlo de una forma mas elegante.
+
+
 ---
 
 ## 🌐 Despliegue Continuo con AWS Amplify
