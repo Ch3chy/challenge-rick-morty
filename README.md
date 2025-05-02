@@ -37,6 +37,36 @@ bun dev
 
 Abrir [http://localhost:3000](http://localhost:3000) en su navegador para ver el resultado.
 
+### 📌 4. Ejecutar Tests
+
+El proyecto utiliza Jest y React Testing Library para las pruebas. Para ejecutar los tests:
+
+```bash
+# Ejecutar todos los tests
+npm run test
+```
+
+#### Configuración de Tests
+
+- Los tests se encuentran en archivos con extensión `.test.ts`
+- Se utiliza `@testing-library/react` para pruebas de componentes
+- Se utiliza `jest` como motor de pruebas
+- Se utiliza `@testing-library/jest-dom` para expectativas específicas de DOM
+
+#### Ejemplo de Test
+
+```tsx
+import { render, screen } from '@testing-library/react';
+import Component from './Component';
+
+describe('Component', () => {
+  it('should render correctly', () => {
+    render(<Component />);
+    expect(screen.getByText('Hello World')).toBeInTheDocument();
+  });
+});
+```
+
 ---
 
 ## 🌐 Despliegue Continuo con AWS Amplify
