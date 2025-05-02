@@ -6,6 +6,7 @@ import { List } from "../../components/list";
 import { SearchCharacter } from "../../components/search-character";
 import { Favorites } from "../../components/favorites";
 import { CarouselMobile } from "../../components/carousel-mobile";
+import Image from "next/image";
 
 type DesktopLayoutProps = Readonly<{
   children?: React.ReactNode;
@@ -19,6 +20,17 @@ const DesktopLayout: FC<DesktopLayoutProps> = ({ children, characters }) => {
     <div className={styles.layout}>
       <div className={styles.detail}>{children}</div>
       <div className={styles.data}>
+        <header className={styles.header}>
+          <h1 className={styles.title}>
+            Rick & Morty
+            <Image
+              src="/assets/images/title.webp"
+              alt="Rick & Morty"
+              width={100}
+              height={100}
+            />
+          </h1>
+        </header>
         <SearchCharacter
           characters={charactersGroups}
           className={styles.search}

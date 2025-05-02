@@ -46,6 +46,7 @@
     width: 100%;
   }
   @include responsive.apply(md) {
+    padding-top: 115px;
     z-index: 5;
     .appContent {
       background-color: var(--Color-gray-100);
