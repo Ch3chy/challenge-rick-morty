@@ -43,7 +43,7 @@ const List: FC<ListProps> = ({ characters, className }) => {
   };
 
   return (
-    <section className={`${styles.list} ${className || ""}`}>
+    <section className={`${styles.list} ${className || ""}`} data-testid="characters-list">
       {currentCharacter.map((character) => (
         <CharacterCard
           key={`character-card-${character.id}`}
