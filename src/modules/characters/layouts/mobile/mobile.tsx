@@ -32,7 +32,7 @@ const MobileLayout: FC<MobileLayoutProps> = async ({
           />
         </h1>
       </header>
-      <SearchCharacter className={styles.search} />
+      <SearchCharacter characters={charactersGroups} className={styles.search} />
       <List characters={charactersGroups} className={styles.list} />
       <CarouselMobile characters={characters}>{children}</CarouselMobile>
       <div className={styles.favorites}>
