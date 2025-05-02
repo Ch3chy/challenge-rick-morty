@@ -1,6 +1,13 @@
+@use "@styles/mixins/responsive";
+
 .list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   justify-items: center;
+  width: 100%;
+
+  @include responsive.apply(md) {
+    gap: 2rem;
+  }
 }

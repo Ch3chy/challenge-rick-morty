@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .card {
   align-items: center;
   background-color: var(--Color-gray-200);
@@ -18,6 +20,16 @@
     background-color: var(--Color-gray-100);
     border-color: var(--Color-green-500);
   }
+
+  @include responsive.apply(md) {
+    background-color: var(--Color-gray-200);
+    border-color: var(--Color-gray-100);
+    max-width: 190px;
+    padding: 0.5rem 1.25rem;
+    &.active {
+      background-color: var(--Color-gray-200);
+    }
+  }
 }
 
 .name {
@@ -30,10 +42,15 @@
   text-transform: uppercase;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+
+  @include responsive.apply(md) {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .image {
   aspect-ratio: 1/1;
+  width: 100%;
   img {
     height: 100%;
     object-fit: cover;

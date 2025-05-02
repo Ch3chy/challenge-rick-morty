@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .button {
   align-items: center;
   background-color: var(--Color-gray-400);
@@ -13,6 +15,12 @@
   &:disabled {
     opacity: 0;
     cursor: not-allowed;
+  }
+
+  @include responsive.apply(md) {
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 }
 

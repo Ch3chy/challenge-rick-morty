@@ -1,8 +1,15 @@
+@use "@styles/mixins/responsive";
+
 .detail {
   border-radius: 1.5rem;
   overflow: hidden;
   position: relative;
   width: 100%;
+
+  @include responsive.apply(md) {
+    border-radius: 0;
+    height: 100%;
+  }
 }
 
 .status {
@@ -42,6 +49,11 @@
       );
     }
   }
+
+  @include responsive.apply(md) {
+    left: 1.5rem;
+    top: 3rem;
+  }
 }
 
 .image {
@@ -62,6 +74,15 @@
     position: absolute;
     top: 0;
     width: 100%;
+  }
+
+  @include responsive.apply(md) {
+    aspect-ratio: unset;
+    height: 100%;
+
+    &::before {
+      box-shadow: inset -1rem 1rem 2.5rem var(--Color-gray-100);
+    }
   }
 }
 
@@ -93,6 +114,14 @@
     font-size: 1.25rem;
     font-weight: 400;
   }
+
+  @include responsive.apply(md) {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    &::before {
+      opacity: 0.6;
+    }
+  }
 }
 
 .data {
@@ -105,6 +134,15 @@
     flex-direction: column;
     span {
       color: var(--Color-green-500);
+    }
+  }
+
+  @include responsive.apply(md) {
+    justify-content: space-around;
+    p {
+      span {
+        font-size: 1.25rem;
+      }
     }
   }
 }

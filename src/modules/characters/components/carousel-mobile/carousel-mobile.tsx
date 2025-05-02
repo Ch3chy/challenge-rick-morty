@@ -38,25 +38,25 @@ const CarouselMobile: FC<CarouselMobileProps> = ({ children, characters }) => {
   return (
     <div className={styles.carousel}>
       <Link
-        className={styles.arrow}
+        className={`${styles.arrow} ${styles.arrowLeft}`}
         href={
           previousCharacter
             ? `/characters/${previousCharacter.id}?${searchParams.toString()}`
             : ""
         }
       >
-        <ArrowButton disabled={!previousCharacter} className={styles.arrowLeft} />
+        <ArrowButton disabled={!previousCharacter} className={styles.button} />
       </Link>
       {children}
       <Link
-        className={styles.arrow}
+        className={`${styles.arrow} ${styles.arrowRight}`}
         href={
           nextCharacter
             ? `/characters/${nextCharacter.id}?${searchParams.toString()}`
             : ""
         }
       >
-        <ArrowButton disabled={!nextCharacter} className={styles.arrowRight} />
+        <ArrowButton disabled={!nextCharacter} className={styles.button} />
       </Link>
     </div>
   );

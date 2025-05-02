@@ -1,0 +1,44 @@
+@use "@styles/mixins/responsive";
+
+.layout {
+  align-items: stretch;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  @include responsive.apply(md) {
+    flex-direction: row;
+  }
+}
+
+.detail {
+  flex: 1;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  padding: 3rem 1.5rem;
+  position: relative;
+  width: 100%;
+
+  @include responsive.apply(md) {
+    width: 520px;
+  }
+}
+
+.search {
+  align-self: center;
+  max-width: 240px;
+}
+
+.favorites {
+  bottom: -1rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 200px;
+  z-index: 5;
+}

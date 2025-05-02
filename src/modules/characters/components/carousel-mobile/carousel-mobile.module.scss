@@ -1,3 +1,5 @@
+@use "@styles/mixins/responsive";
+
 .carousel {
   align-items: center;
   display: flex;
@@ -8,6 +10,23 @@
   }
   .arrowRight {
     margin-left: -0.125rem;
+  }
+
+  @include responsive.apply(md) {
+    padding-right: 1rem;
+    position: relative;
+    .arrow {
+      position: absolute;
+      right: -0.5rem;
+    }
+    .arrowLeft {
+      rotate: -90deg;
+      top: 0;
+    }
+    .arrowRight {
+      bottom: 0;
+      rotate: 90deg;
+    }
   }
 }
 
