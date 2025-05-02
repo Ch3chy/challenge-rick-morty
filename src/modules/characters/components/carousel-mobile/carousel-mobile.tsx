@@ -45,7 +45,7 @@ const CarouselMobile: FC<CarouselMobileProps> = ({ children, characters }) => {
             : ""
         }
       >
-        <ArrowButton className={styles.arrowLeft} />
+        <ArrowButton disabled={!previousCharacter} className={styles.arrowLeft} />
       </Link>
       {children}
       <Link
@@ -56,7 +56,7 @@ const CarouselMobile: FC<CarouselMobileProps> = ({ children, characters }) => {
             : ""
         }
       >
-        <ArrowButton className={styles.arrowRight} />
+        <ArrowButton disabled={!nextCharacter} className={styles.arrowRight} />
       </Link>
     </div>
   );

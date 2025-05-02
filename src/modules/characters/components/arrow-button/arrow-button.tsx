@@ -4,12 +4,21 @@ import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 type ArrowButtonProps = Readonly<{
   className?: string;
+  disabled?: boolean;
   onClick?: VoidFunction;
 }>;
 
-const ArrowButton: FC<ArrowButtonProps> = ({ className, onClick }) => {
+const ArrowButton: FC<ArrowButtonProps> = ({
+  className,
+  disabled,
+  onClick,
+}) => {
   return (
-    <button className={`${styles.button} ${className || ""}`} onClick={onClick}>
+    <button
+      className={`${styles.button} ${className || ""}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       <CaretRight weight="bold" />
     </button>
   );
