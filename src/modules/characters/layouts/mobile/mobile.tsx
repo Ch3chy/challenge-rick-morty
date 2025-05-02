@@ -6,6 +6,7 @@ import { Character } from "../../types/characters.types";
 import { List } from "../../components/list";
 import { arrayToGroups } from "@/config/utils/arrays.utils";
 import { Favorites } from "../../components/favorites";
+import { SearchCharacter } from "../../components/search-character";
 
 type MobileLayoutProps = Readonly<{
   children?: React.ReactNode;
@@ -31,7 +32,7 @@ const MobileLayout: FC<MobileLayoutProps> = async ({
           />
         </h1>
       </header>
-      <h1>Mobile Layout ({characters.length})</h1>
+      <SearchCharacter className={styles.search} />
       <List characters={charactersGroups} className={styles.list} />
       <CarouselMobile characters={characters}>{children}</CarouselMobile>
       <div className={styles.favorites}>
