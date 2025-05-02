@@ -48,8 +48,14 @@ const SearchCharacter: FC<SearchCharacterProps> = ({
   }, [characters, debouncedValue, router, characterId]);
 
   return (
-    <div className={`${styles.searchCharacter} ${className || ""}`}>
-      <MagnifyingGlass className={`${styles.icon} ${styles.iconSearch}`} />
+    <div
+      className={`${styles.searchCharacter} ${className || ""}`}
+      data-testid="search-character"
+    >
+      <MagnifyingGlass
+        className={`${styles.icon} ${styles.iconSearch}`}
+        data-testid="search-icon"
+      />
       <input
         type="text"
         placeholder="Find your character..."
@@ -57,7 +63,10 @@ const SearchCharacter: FC<SearchCharacterProps> = ({
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <User className={`${styles.icon} ${styles.iconUser}`} />
+      <User
+        className={`${styles.icon} ${styles.iconUser}`}
+        data-testid="user-icon"
+      />
     </div>
   );
 };
