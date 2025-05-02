@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { Character } from "../../types/characters.types";
 import styles from "./character-card.module.scss";
 import Image from "next/image";
 import { Heart } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type CharacterCardProps = Readonly<{
   character: Character;
@@ -18,6 +19,12 @@ const CharacterCard: FC<CharacterCardProps> = ({
   isLiked,
   onLikeClick,
 }) => {
+  const searchParams = useSearchParams();
+
+  const link = useMemo(() => {
+    return `/characters/${character.id}?${searchParams.toString()}`;
+  }, [character, searchParams]);
+
   const handleLike = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (onLikeClick) {
@@ -27,7 +34,7 @@ const CharacterCard: FC<CharacterCardProps> = ({
 
   return (
     <Link
-      href={`/characters/${character.id}`}
+      href={link}
       className={`${styles.card} ${isActive ? styles.active : ""}`}
     >
       <h3 className={styles.name}>{character.name}</h3>

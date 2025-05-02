@@ -5,7 +5,7 @@ import { Character } from "../../types/characters.types";
 import { ArrowButton } from "../arrow-button";
 import styles from "./carousel-mobile.module.scss";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 
 type CarouselMobileProps = Readonly<{
   children?: React.ReactNode;
@@ -14,6 +14,7 @@ type CarouselMobileProps = Readonly<{
 
 const CarouselMobile: FC<CarouselMobileProps> = ({ children, characters }) => {
   const { characterId } = useParams();
+  const searchParams = useSearchParams();
 
   const currentCharacters = useMemo(
     () => characters.findIndex((item) => String(item.id) === characterId),
@@ -38,14 +39,22 @@ const CarouselMobile: FC<CarouselMobileProps> = ({ children, characters }) => {
     <div className={styles.carousel}>
       <Link
         className={styles.arrow}
-        href={previousCharacter ? `/characters/${previousCharacter.id}` : ""}
+        href={
+          previousCharacter
+            ? `/characters/${previousCharacter.id}?${searchParams.toString()}`
+            : ""
+        }
       >
         <ArrowButton className={styles.arrowLeft} />
       </Link>
       {children}
       <Link
         className={styles.arrow}
-        href={nextCharacter ? `/characters/${nextCharacter.id}` : ""}
+        href={
+          nextCharacter
+            ? `/characters/${nextCharacter.id}?${searchParams.toString()}`
+            : ""
+        }
       >
         <ArrowButton className={styles.arrowRight} />
       </Link>

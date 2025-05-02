@@ -14,12 +14,16 @@ const Characters: FC<
     searchParams: Promise<SearchParams>;
   }>
 > = async (props) => {
-  const { params } = props;
+  const { params, searchParams } = props;
   const isMobile = await isMobileDevice();
+  const { s } = await searchParams;
 
   const Layout = isMobile ? MobileLayout : DesktopLayout;
 
-  const charactersResponse = await getCharacters({ page: 1 });
+  const charactersResponse = await getCharacters({
+    page: 1,
+    ...(s && { name: s }),
+  });
   const characters = (charactersResponse.data.results || []) as Character[];
 
   return (
