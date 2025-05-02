@@ -1,3 +1,3 @@
-import { Detail } from "@/modules/characters/views/detail";
+import { Characters } from "@/modules/characters";
 
-export default Detail;
+export default Characters;

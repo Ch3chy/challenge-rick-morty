@@ -5,22 +5,28 @@ import { MobileLayout } from "./layouts/mobile";
 import { DesktopLayout } from "./layouts/desktop";
 import { getCharacters } from "rickmortyapi";
 import { Character } from "./types/characters.types";
+import { Detail } from "./views/detail";
+import { SearchParams, UrlParams } from "@/config/types/urls.types";
 
 const Characters: FC<
   Readonly<{
-    children?: React.ReactNode;
+    params: Promise<UrlParams>;
+    searchParams: Promise<SearchParams>;
   }>
-> = async ({ children }) => {
+> = async (props) => {
+  const { params } = props;
   const isMobile = await isMobileDevice();
-  const charactersResponse = await getCharacters({ page: 1 });
 
   const Layout = isMobile ? MobileLayout : DesktopLayout;
 
+  const charactersResponse = await getCharacters({ page: 1 });
   const characters = (charactersResponse.data.results || []) as Character[];
 
   return (
     <section className={styles.page}>
-      <Layout characters={characters}>{children}</Layout>
+      <Layout characters={characters}>
+        <Detail params={params} />
+      </Layout>
     </section>
   );
 };
