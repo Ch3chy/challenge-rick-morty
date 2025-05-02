@@ -19,7 +19,7 @@ const ArrowButton: FC<ArrowButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      <CaretRight weight="bold" />
+      <CaretRight weight="bold" data-testid="caret-right-icon" />
     </button>
   );
 };
